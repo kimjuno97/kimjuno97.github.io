@@ -34,3 +34,9 @@ Starting: Intent { act=android.intent.action.VIEW cat=[android.intent.
 category.BROWSABLE] dat=http://kimjuno97.github.io/... pkg=com.
 example.deeplink_cookbook }
 ```
+
+---
+
+## [IOS universal-links](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links)
+
+- apple-app-site-association
