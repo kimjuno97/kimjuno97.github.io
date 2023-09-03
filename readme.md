@@ -40,3 +40,10 @@ example.deeplink_cookbook }
 ## [IOS universal-links](https://docs.flutter.dev/cookbook/navigation/set-up-universal-links)
 
 - apple-app-site-association
+  https://kimjuno97.github.io/.well-know/apple-app-site-association
+
+- test
+
+```
+xcrun simctl openurl booted https://kimjuno97.github.io/details
+```
