@@ -3,9 +3,10 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.hwc2.chaam_beta",
-      "sha256_cert_fingerprints":
-        ["A0:74:F7:85:B3:85:02:EC:6C:2C:4F:E1:80:E0:A9:30:CF:10:D9:B4:41:EF:9F:EB:4F:5B:13:A7:A2:23:8E:7B"]
+      "package_name": "S8QB4VV633.com.example.deeplinkCookbook",
+      "sha256_cert_fingerprints": [
+        "E6:49:9B:F6:2F:A4:94:9C:C9:F9:D2:E4:1B:E1:CC:CD:5F:C3:80:09:08:A0:03:DB:63:1B:2E:D1:46:39:AF:81"
+      ]
     }
   }
 ]
