@@ -1,4 +1,4 @@
-# [Set up app links for Android](https://docs.flutter.dev/cookbook/navigation/set-up-app-links)
+## [Set up app links for Android](https://docs.flutter.dev/cookbook/navigation/set-up-app-links)
 
 #### [blog post](https://kimjunho97.tistory.com/21)
 
