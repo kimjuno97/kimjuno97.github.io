@@ -46,3 +46,11 @@ example.deeplink_cookbook }
 ```
 xcrun simctl openurl booted https://kimjuno97.github.io/details
 ```
+
+---
+
+### apple-app-site-association
+
+1. webcredentials": "webcredentials"는 Associated Domains 설정에 추가되는 키로, 앱과 관련된 웹 자격 증명을 지정하는 데 사용됩니다. 이를 통해 사용자가 웹 사이트에 로그인할 때 앱과의 싱크를 맞출 수 있습니다. "webcredentials" 키에는 앱의 도메인 이름을 지정해야 합니다.
+
+2. "appclips": "appclips"는 iOS 14부터 도입된 기능으로, 앱의 일부 기능을 즉시 사용할 수 있는 작은 앱 클립을 제공합니다. "appclips"를 설정하면 사용자가 특정 액션을 수행할 때 앱의 일부 기능을 빠르게 실행할 수 있습니다.
