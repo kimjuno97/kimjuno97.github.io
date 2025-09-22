@@ -3,21 +3,21 @@
     "apps": [],
     "details": [
       {
-        "appID": "AL24662ZQD.com.example.kkongYangKkongYacFlutterTemporary",
+        "appID": "R84TSHV6Z2.com.wiiee.zamfit",
         "paths": [
           "*"
+        ],
+        "components": [
+          {
+            "/": "/*"
+          }
         ]
       }
     ]
   },
   "webcredentials": {
     "apps": [
-      "AL24662ZQD.com.example.kkongYangKkongYacFlutterTemporary"
-    ]
-  },
-  "appclips": {
-    "apps": [
-      "AL24662ZQD.com.example.kkongYangKkongYacFlutterTemporary"
+      "R84TSHV6Z2.com.wiiee.zamfit"
     ]
   }
 }
