@@ -9,16 +9,5 @@
         "A3:8A:E9:D0:31:A7:30:56:89:BD:6F:82:AC:76:CA:A6:6D:16:07:B4:B1:25:6D:34:97:67:B5:45:1D:6A:3E:08"
       ]
     }
-  },
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.wiiee.wiiee_mobile,.dev",
-      "sha256_cert_fingerprints": [
-        "F9:F1:5E:EF:94:F0:F5:44:81:42:53:88:19:F6:2C:F0:5E:89:47:68:60:31:B7:C7:20:A1:C6:49:D9:E4:AC:FF",
-        "A3:8A:E9:D0:31:A7:30:56:89:BD:6F:82:AC:76:CA:A6:6D:16:07:B4:B1:25:6D:34:97:67:B5:45:1D:6A:3E:08"
-      ]
-    }
   }
 ]
