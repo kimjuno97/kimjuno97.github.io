@@ -1,0 +1,79 @@
+<script>
+  // === 환경 설정 ===
+  const APP_STORE_URL = "https://apps.apple.com/kr/app/id6447055305";
+  const PLAY_STORE_URL =
+    "https://play.google.com/store/apps/details?id=com.wiiee.wiiee_mobile";
+  const CUSTOM_SCHEME = "zamfit://"; // 커스텀 스킴
+  const ANDROID_PACKAGE = "com.wiiee.wiiee_mobile";
+  const currentPathAndQuery = location.pathname + location.search;
+
+  // === UA 감지 ===
+  const ua = navigator.userAgent || "";
+  const isAndroid = /Android/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const isMobile = isAndroid || isIOS;
+
+  // === 스토어 링크 ===
+  const storeUrl = isIOS ? APP_STORE_URL : isAndroid ? PLAY_STORE_URL : null;
+
+  // 버튼 href 세팅 (링크 복사용으로도 유용)
+  const openBtn = document.getElementById("openAppBtn");
+  const storeBtn = document.getElementById("storeBtn");
+  if (storeUrl) storeBtn.href = storeUrl;
+  // 현재 경로 유지해서 앱 열기(원하면 규칙에 맞는 내부 경로로 매핑)
+  const deepLinkUrl = CUSTOM_SCHEME + currentPathAndQuery.replace(/^\//, "");
+  openBtn.href = deepLinkUrl;
+
+  // 인앱 전환 감지 → 스토어 리다이렉트 취소
+  let redirected = false;
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") redirected = true;
+  });
+
+  // === 앱 열기 시도 함수 (필수: 기존 코드에 없던 함수) ===
+  function tryOpenApp() {
+    try {
+      if (isIOS) {
+        // iOS: 커스텀 스킴 시도
+        window.location.href = deepLinkUrl;
+      } else if (isAndroid) {
+        // Android: 1) intent:// 시도 → 2) 커스텀 스킴 백업
+        const intentUrl =
+          "intent://" +
+          currentPathAndQuery.replace(/^\//, "") +
+          "#Intent;scheme=zamfit;package=" +
+          ANDROID_PACKAGE +
+          ";end";
+        // 일부 브라우저에서 intent://가 더 잘 동작
+        window.location.href = intentUrl;
+
+        // intent:// 미지원 인앱브라우저 대비(짧은 시간 뒤 백업 시도)
+        setTimeout(() => {
+          if (!redirected) window.location.href = deepLinkUrl;
+        }, 150);
+      }
+    } catch (_) {
+      // 무시: 바로 fallback 단계에서 처리
+    }
+  }
+
+  // 버튼 클릭: 앱 열기 → 실패 시 스토어
+  document.getElementById("openAppBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    tryOpenApp();
+    setTimeout(() => {
+      if (storeUrl) window.location.href = storeUrl;
+    }, 800);
+  });
+
+  // === 자동 fallback ===
+  // App/Universal Link가 성공하면 이 페이지 자체가 뜨지 않음.
+  // 여기까지 왔다는 건 미설치/비호환 환경 가능성이 높음 → 스토어 유도
+  if (isMobile && storeUrl) {
+    setTimeout(() => {
+      if (!redirected) {
+        window.location.replace(storeUrl);
+      }
+    }, 800); // 600~1200ms 권장
+  }
+</script>
